@@ -225,7 +225,7 @@ require (
 	k8s.io/component-base v0.36.0 // @grafana/grafana-app-platform-squad
 	k8s.io/klog/v2 v2.140.0 // @grafana/grafana-app-platform-squad
 	k8s.io/kube-aggregator v0.36.0 // @grafana/grafana-app-platform-squad
-	k8s.io/kube-openapi v0.0.0-20260317180543-43fb72c5454a // @grafana/grafana-app-platform-squad
+	k8s.io/kube-openapi v0.0.0-20260520065146-aa012df4f4af // @grafana/grafana-app-platform-squad
 	k8s.io/utils v0.0.0-20260210185600-b8788abfbbc2 // @grafana/data-sources-plugins
 	pgregory.net/rapid v1.3.0 // @grafana/grafana-operator-experience-squad
 	sigs.k8s.io/randfill v1.0.0 // @grafana/grafana-app-platform-squad
@@ -240,6 +240,7 @@ require (
 	// Check go.work file for details
 	github.com/grafana/grafana-prometheus-datasource/pkg/promlib v0.0.11 // @grafana/data-sources-plugins
 	github.com/grafana/grafana/apps/advisor v0.0.0 // @grafana/grafana-catalog
+	github.com/grafana/grafana/apps/alerting/admin v0.0.0 // @grafana/alerting-backend
 	github.com/grafana/grafana/apps/alerting/alertenrichment v0.0.0 // @grafana/alerting-backend
 	github.com/grafana/grafana/apps/alerting/historian v0.0.0 // @grafana/alerting-backend
 	github.com/grafana/grafana/apps/alerting/notifications v0.0.0 // @grafana/alerting-backend
@@ -276,6 +277,7 @@ require (
 // Replace references to internal workspaces
 replace (
 	github.com/grafana/grafana/apps/advisor => ./apps/advisor
+	github.com/grafana/grafana/apps/alerting/admin => ./apps/alerting/admin
 	github.com/grafana/grafana/apps/alerting/alertenrichment => ./apps/alerting/alertenrichment
 	github.com/grafana/grafana/apps/alerting/historian => ./apps/alerting/historian
 	github.com/grafana/grafana/apps/alerting/notifications => ./apps/alerting/notifications
