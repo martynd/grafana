@@ -6822,7 +6822,7 @@
           }
         }
       },
-      "github.com/grafana/grafana/pkg/apis/iam/v0alpha1.TeamMember": {
+      "github.com~1grafana~1grafana~1pkg~1apis~1iam~1v0alpha1.TeamMember": {
         "type": "object",
         "required": [
           "identity",
@@ -6865,7 +6865,7 @@
           }
         }
       },
-      "github.com/grafana/grafana/pkg/apis/iam/v0alpha1.TeamMemberList": {
+      "github.com~1grafana~1grafana~1pkg~1apis~1iam~1v0alpha1.TeamMemberList": {
         "type": "object",
         "required": [
           "items"
@@ -6900,7 +6900,7 @@
           }
         }
       },
-      "github.com/grafana/grafana/pkg/apis/iam/v0alpha1.TeamRef": {
+      "github.com~1grafana~1grafana~1pkg~1apis~1iam~1v0alpha1.TeamRef": {
         "type": "object",
         "properties": {
           "name": {
@@ -6909,7 +6909,7 @@
           }
         }
       },
-      "github.com/grafana/grafana/pkg/apis/iam/v0alpha1.UserTeam": {
+      "github.com~1grafana~1grafana~1pkg~1apis~1iam~1v0alpha1.UserTeam": {
         "type": "object",
         "properties": {
           "permission": {
@@ -6933,7 +6933,7 @@
           }
         }
       },
-      "github.com/grafana/grafana/pkg/apis/iam/v0alpha1.UserTeamList": {
+      "github.com~1grafana~1grafana~1pkg~1apis~1iam~1v0alpha1.UserTeamList": {
         "type": "object",
         "required": [
           "items"
