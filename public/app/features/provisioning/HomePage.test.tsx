@@ -39,6 +39,21 @@ jest.mock('app/api/clients/provisioning/v0alpha1', () => ({
   })),
 }));
 
+// The Migrate tab also fans out to the unified searcher (via the folder
+// leaderboard hook) to build the unmanaged folders table. Return an empty
+// result set so the hook resolves quickly and the tab settles into its empty
+// state without hitting the real search backend.
+jest.mock('app/features/search/service/searcher', () => ({
+  getGrafanaSearcher: jest.fn(() => ({
+    search: jest.fn(async () => ({
+      view: { toArray: () => [] },
+      loadMoreItems: jest.fn(),
+      isItemLoaded: () => true,
+      totalRows: 0,
+    })),
+  })),
+}));
+
 // Page resolves navId against the nav index; seed the provisioning node so it
 // renders its children instead of a "page not found" state.
 const preloadedState = {
@@ -79,11 +94,13 @@ describe('Provisioning HomePage', () => {
     expect(screen.getByText(/^experimental$/i)).toBeInTheDocument();
   });
 
-  it('opens directly on the Migrate placeholder when the URL targets it and the flag is on', () => {
+  it('opens directly on the Migrate placeholder when the URL targets it and the flag is on', async () => {
     config.featureToggles.provisioningExport = true;
     renderHomePage('/admin/provisioning?tab=migrate');
 
-    expect(screen.getByRole('heading', { name: /migrate to gitops/i })).toBeInTheDocument();
+    // The Migrate tab resolves the folder leaderboard asynchronously; await the
+    // heading so the hook's state update settles inside act().
+    expect(await screen.findByRole('heading', { name: /migrate to gitops/i })).toBeInTheDocument();
   });
 
   it('falls back to the default tab when ?tab=migrate is set but the flag is off', () => {
