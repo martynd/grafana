@@ -6,7 +6,7 @@ require (
 	github.com/grafana/grafana-app-sdk v0.56.0
 	github.com/grafana/grafana-app-sdk/logging v0.55.0
 	k8s.io/apimachinery v0.36.1
-	k8s.io/kube-openapi v0.0.0-20260317180543-43fb72c5454a
+	k8s.io/kube-openapi v0.0.0-20260520065146-aa012df4f4af
 )
 
 require (

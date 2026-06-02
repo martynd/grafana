@@ -10,7 +10,7 @@ require (
 	go.yaml.in/yaml/v3 v3.0.4
 	k8s.io/apimachinery v0.36.1
 	k8s.io/apiserver v0.36.0
-	k8s.io/kube-openapi v0.0.0-20260317180543-43fb72c5454a
+	k8s.io/kube-openapi v0.0.0-20260520065146-aa012df4f4af
 	k8s.io/utils v0.0.0-20260210185600-b8788abfbbc2 // indirect
 )
 
@@ -44,7 +44,6 @@ require (
 	github.com/modern-go/reflect2 v1.0.3-0.20250322232337-35a7c28c31ee // indirect
 	github.com/patrickmn/go-cache v2.1.0+incompatible // indirect
 	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
-	github.com/spf13/pflag v1.0.10 // indirect
 	github.com/stretchr/objx v0.5.3 // indirect
 	github.com/x448/float16 v0.8.4 // indirect
 	go.opentelemetry.io/auto/sdk v1.2.1 // indirect
