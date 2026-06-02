@@ -442,8 +442,7 @@ func (s *ExternalAMSyncer) recordSyncResult(ctx context.Context, orgID int64, ui
 			return getErr
 		}
 		newStatus := computeSyncStatus(&existing.Status, uid, origin, syncErr, now)
-		existing.Status = newStatus
-		_, updateErr := c.UpdateStatus(nsCtx, id, existing.Status, resource.UpdateOptions{ResourceVersion: existing.ResourceVersion})
+		_, updateErr := c.UpdateStatus(nsCtx, id, newStatus, resource.UpdateOptions{ResourceVersion: existing.ResourceVersion})
 		return updateErr
 	})
 	if err != nil {
