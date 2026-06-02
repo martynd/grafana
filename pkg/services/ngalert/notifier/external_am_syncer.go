@@ -110,8 +110,9 @@ func (r SyncReason) ConditionReason() string {
 		return "SaveFailed"
 	case ReasonIdentifierMismatch:
 		return "IdentifierMismatch"
+	default:
+		return "SyncFailed"
 	}
-	return "SyncFailed"
 }
 
 // SyncError tags an error with a SyncReason. Failure sites in the sync path
