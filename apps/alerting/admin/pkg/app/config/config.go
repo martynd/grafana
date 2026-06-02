@@ -2,8 +2,6 @@ package config
 
 import (
 	"context"
-
-	"github.com/grafana/grafana-app-sdk/resource"
 )
 
 // RuntimeConfig carries the in-process dependencies the admin app needs at
@@ -11,10 +9,6 @@ import (
 // at registration time so the admin app's submodule stays free of
 // grafana-parent imports.
 type RuntimeConfig struct {
-	// ClientGenerator builds typed clients into the in-process apiserver.
-	// Used by the synthetic AlertingStatus storage to read AlertingConfig.
-	ClientGenerator resource.ClientGenerator
-
 	// ValidateExternalSyncDatasource validates that the given datasource UID
 	// is acceptable as spec.externalAlertmanagerSync.datasourceUid for the
 	// org carried in ctx. Called from the AlertingConfig admission validator

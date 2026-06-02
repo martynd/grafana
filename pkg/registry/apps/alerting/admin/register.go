@@ -13,7 +13,6 @@ import (
 
 	"github.com/grafana/grafana-app-sdk/app"
 	appsdkapiserver "github.com/grafana/grafana-app-sdk/k8s/apiserver"
-	"github.com/grafana/grafana-app-sdk/resource"
 	"github.com/grafana/grafana-app-sdk/simple"
 
 	"github.com/grafana/grafana/apps/alerting/admin/pkg/apis/manifestdata"
@@ -107,7 +106,6 @@ func newExternalSyncDatasourceValidator(ds datasources.DataSourceService) func(c
 func RegisterAppInstaller(
 	cfg *setting.Cfg,
 	ng *ngalert.AlertNG,
-	clientGenerator resource.ClientGenerator,
 	datasourceService datasources.DataSourceService,
 ) (*AppInstaller, error) {
 	if ng != nil && ng.IsDisabled() {
@@ -115,15 +113,14 @@ func RegisterAppInstaller(
 		return nil, nil
 	}
 
-	return NewAppInstaller(clientGenerator, datasourceService)
+	return NewAppInstaller(datasourceService)
 }
 
-func NewAppInstaller(clientGenerator resource.ClientGenerator, datasourceService datasources.DataSourceService) (*AppInstaller, error) {
+func NewAppInstaller(datasourceService datasources.DataSourceService) (*AppInstaller, error) {
 	installer := &AppInstaller{}
 
 	localManifest := manifestdata.LocalManifest()
 	runtimeConfig := adminAppConfig.RuntimeConfig{
-		ClientGenerator:                clientGenerator,
 		ValidateExternalSyncDatasource: newExternalSyncDatasourceValidator(datasourceService),
 	}
 
