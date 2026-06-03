@@ -140,7 +140,7 @@ func (hs *HTTPServer) LoginView(c *contextmodel.ReqContext) {
 		// JWT validated users are also assigned a login token but come from the plain JWTModule
 		if hs.Cfg.AuthProxy.Enabled &&
 			hs.Cfg.AuthProxy.EnableLoginToken &&
-			c.SignedInUser.IsAuthenticatedBy(loginservice.AuthProxyAuthModule, loginservice.LDAPAuthModule, loginservice.JWTModule) {
+			c.IsAuthenticatedBy(loginservice.AuthProxyAuthModule, loginservice.LDAPAuthModule, loginservice.JWTModule) {
 			user := &user.User{ID: c.UserID, Email: c.Email, Login: c.Login}
 			err := hs.loginUserWithUser(user, c)
 			if err != nil {
